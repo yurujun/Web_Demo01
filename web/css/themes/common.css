@@ -1,0 +1,321 @@
+.errorInfo{
+    color:red;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.listPageContentNavi{
+    color: #6f90b8;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 14px;
+    text-align:center;
+    border:1px solid #cccccc;
+    cursor:pointer;
+}
+
+.listPageContentNaviActive{
+    color: #000000;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 14px;
+    text-align:center;
+    border:1px solid #cccccc;
+    background:#c8d9eb;
+    cursor:pointer;
+}
+
+.menuTableHead{
+    color:#383838;
+    font-weight:bold;
+    font-size:10pt;
+    background:#c7d9eb;
+    font-family:微软雅黑;
+    text-align:center;
+}
+
+
+.menuTableRowHead{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    background:#f8f8f8;
+    border:1px solid #cccccc;
+    text-align:center;
+    height:30px;
+}
+
+.menuTableRowBlank{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    border:1px solid #cccccc;
+    text-align:center;
+    cursor:pointer;
+
+}
+
+.menuTableRow{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    border:1px solid #cccccc;
+    text-align:center;
+    height:30px;
+    cursor:pointer;
+    
+}
+
+.menuTableRowHover{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    border:1px solid #cccccc;
+    text-align:center;
+    height:30px;
+    cursor:pointer;
+    background:#FEFEDA;
+}
+
+
+.tr-pageControl{
+    background:#fafafa url('/eval/themes/default/images/datagrid_header_bg.gif') repeat-x left bottom;
+    padding-top:2px;
+    margin: 2px;
+    border-top:1px solid #ccc;
+    text-align:center;
+}
+
+.searchTitleHead{
+    color:#383838;
+    font-weight:bold;
+    font-size:10pt;
+    background:#c7d9eb;
+    font-family:微软雅黑;
+    text-align:center;
+    border:1px solid #cccccc;
+}
+
+.searchColumnTitle{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    background:#f8f8f8;
+    border:1px solid #cccccc;
+    text-align:center;
+    height:30px;
+}
+
+.searchColumnText{
+    border:1px solid #cccccc;
+}
+
+.editTitleHead{
+    color:#383838;
+    font-weight:bold;
+    font-size:10pt;
+    background:#c7d9eb;
+    font-family:微软雅黑;
+    text-align:center;
+    border:1px solid #cccccc;
+    border-bottom: none;
+}
+
+.editColumnTitle{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    background:#f8f8f8;
+    border:1px solid #cccccc;
+    text-align:center;
+    height:30px;
+    width: 150px;
+    border-bottom: none;
+}
+
+/* 最下边的title样式需要显示border-bottom*/
+.bottomMostEditColumnTitle{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    background:#f8f8f8;
+    border:1px solid #cccccc;
+    text-align:center;
+    height:30px;
+    width: 150px;
+}
+
+.editColumnText{
+    border:1px solid #cccccc;
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    padding-left: 10px;
+    width: 250px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* 最右边的输入框样式需要显示border-right*/
+.rightMostEditColumnText{
+    border:1px solid #cccccc;
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    padding-left: 10px;
+    width: 250px;
+    border-left: none;
+    border-bottom: none;
+}
+
+/* 最下边的输入框样式需要显示border-bottom*/
+.bottomMostEditColumnText{
+    border:1px solid #cccccc;
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    padding-left: 10px;
+    width: 250px;
+    border-left: none;
+    border-right: none;
+}
+
+/* 最右边并且是最下边的输入框样式需要显示border-right和border-bottom*/
+.rightAndBottomMostEditColumnText{
+    border:1px solid #cccccc;
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    padding-left: 10px;
+    width: 250px;
+    border-left: none;
+}
+
+.editColumnTextField{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    height:25px;
+    width:225px;
+}
+
+/*该样式表示为必须输入*/
+.editColumnTextFieldMust{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    height:25px;
+    width :225px;
+}
+
+/*当输入框中的内容错误的时候,需要的样式*/
+.editColumnTextFieldError{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    height:25px;
+    width:225px;
+    border:1px solid #FF4040;
+}
+
+.editColumnSelectItem{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    width:225px;
+    height:100%;
+}
+
+.editColumnSelectItemMust{
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    width:225px;
+    height:100%;
+}
+
+
+.editColumnTextCenter{
+    border:1px solid #cccccc;
+    color:#000000;
+    font-size:10pt;
+    font-family:微软雅黑;
+    text-align:center;
+
+}
+
+.editColumnSelect{
+    border:1px solid #cccccc;
+    padding-left: 10px;
+    border-left: none;
+    border-bottom: none;
+}
+
+
+
+.simpleButton{
+    background:#c7d9eb;
+    border:1px solid #cccccc;
+    text-align:center;
+    color:#383838;
+    font-size:10pt;
+    font-family:微软雅黑;
+    font-weight:bold;
+    cursor:pointer;
+    width:100px;
+    height:30px;
+}
+
+
+.listTableHead{
+    color:#383838;
+    font-weight:bold;
+    font-size:10pt;
+    background:#c7d9eb;
+    font-family:微软雅黑;
+    border:1px solid #cccccc;
+    text-align:center;
+    cursor:pointer;
+    height:30px;
+    border-top: none;
+    border-bottom: none;
+}
+/*最左边的表头不需要显示border-left*/
+.leftMostListTableHead{
+    color:#383838;
+    font-weight:bold;
+    font-size:10pt;
+    background:#c7d9eb;
+    font-family:微软雅黑;
+    border:1px solid #cccccc;
+    text-align:center;
+    cursor:pointer;
+    height:30px;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.listTableText{
+    color:#383838;
+    font-size:10pt;
+    font-family:微软雅黑;
+    text-align:center;
+    border:1px solid #cccccc;
+    height:30px;
+}
+
+.leftMostListTableText{
+    color:#383838;
+    font-size:10pt;
+    font-family:微软雅黑;
+    text-align:center;
+    border:1px solid #cccccc;
+    height:30px;
+    border-left: none;
+}
+
+
