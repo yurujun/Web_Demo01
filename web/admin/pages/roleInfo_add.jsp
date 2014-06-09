@@ -23,9 +23,9 @@
 		<script src="<%=context %>/js/datePicker/jquery-ui.js" type="text/javascript"></script>
 		<script src="<%=context %>/js/jquery.ui.datepicker-zh-CN.js"></script>
 		<script type="text/javascript">
-		  	var contextRootPath = "${ctx}";
+		  	var contextRootPath = "${ctx }";
 		  	var params;
-
+			var str = "";
 		  	/**
 		  	 * 利用jquery去掉前后空格 $.trim(str) 
 		  	 * 报销人
@@ -65,6 +65,19 @@
 	            	submitForm(object,formObj);
 	            }
 	        }
+
+	        function addRole(obj){
+	        	$(":checkbox").each(function () {
+	                if ($(this).attr("checked")) {
+		                var result = this.id.substring(9,15);
+		                str += result + ",";
+	                }
+	            });
+	            //将最后一个都好去掉
+	            str = str.substring(0,str.length-1);
+	            $("#menuIdList").val(str);
+	        	doAdd(obj,'<%=context %>/roleInfoAction_add.do');
+	        }
     	</script>
     	<style type="text/css">
     		/*左侧菜单*/
@@ -102,12 +115,17 @@
         			<div class="right-sidebar-menu" style="height: 1000px;">
         				<form action="" id="addForm" name="addForm">
 							<table width="900" border="0" height="100" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<s:hidden name="menuIdList" id="menuIdList" />
+									</td>
+								</tr>
 								<tr height="30">
 								    <td class="editColumnTitle" style="border-left: none;">
 								       <img src="<%=context %>/images/markMustInput.jpg"><s:text name="roleInfo.roleName"/>    <!-- 角色名称 -->
 								    </td>
 								    <td class="editColumnText">
-								        <s:textfield name="roleInfo.menuName" cssClass="editColumnTextFieldMust" id="menuName"/>
+								        <s:textfield name="roleInfo.roleName" cssClass="editColumnTextFieldMust" id="roleName"/>
 								    </td>
 								    <td class="editColumnTitle">
 								       	<img src="<%=context %>/images/markMustInput.jpg"><s:text name="roleInfo.isValidate"/>    <!-- 是否有效 -->
@@ -130,7 +148,6 @@
 								    <td class="editColumnText">
 								        <s:textfield readonly="true" cssClass="editColumnTextField" onfocus="this.blur()" 
 								        	id="roleDescribe" cssStyle="color: #969696;" value="请从左边菜单选择该角色的可见菜单"/>
-								        <s:hidden />
 								    </td>
 								</tr>
 								
@@ -139,7 +156,7 @@
 						           		<table>
 					    					<tr>
 					        					<td align="center" >
-					        						<button  class="simpleButton" onclick="doAdd(this,'<%=context %>/roleInfoAction_add.do')"><s:text name="system.add"/></button>
+					        						<button  class="simpleButton" onclick="addRole(this)"><s:text name="system.add"/></button>
 					        					</td>
 					        					<td>&nbsp;</td>
 					    						<td align="center" >
@@ -155,5 +172,9 @@
         		</td>
         	</tr>
 		</table>
+		
+		<div id="aDiv">
+			
+		</div>
 	</body>
 </html>
