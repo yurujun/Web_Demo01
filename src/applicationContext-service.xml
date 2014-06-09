@@ -6,6 +6,9 @@
 	<bean id="menuInfoService" name="menuInfoService"
 	    class="com.web.service.impl.MenuInfoServiceImpl"></bean>
 	
+	<bean id="roleInfoService" name="roleInfoService"
+	    class="com.web.service.impl.RoleInfoServiceImpl"></bean>
+	
 	<bean id="userInfoService" name="userInfoService"
 	    class="com.web.service.impl.UserInfoServiceImpl"></bean>
 
