@@ -3,3 +3,5 @@
 /.classpath
 /.myhibernatedata
 /.project
+/web/WEB-INF/classes
+/web/WEB-INF/lib
