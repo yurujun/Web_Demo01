@@ -1,20 +1,24 @@
 package com.web.action;
 
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.web.pojo.UserInfo;
-import com.web.service.UserInfoService;
+import com.web.pojo.RoleInfo;
+import com.web.service.RoleInfoService;
 
 public class RoleInfoAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	
-	private UserInfo userInfo;
+	private RoleInfo roleInfo;
 	
-	private UserInfoService userInfoService;
+	private RoleInfoService roleInfoService;
+	
+	/**存放前台页面用户在dtree中选中的checkbox的id*/
+	private String menuIdList;
 	
 	/**
      * 日志打印类
@@ -25,12 +29,10 @@ public class RoleInfoAction extends ActionSupport {
 	 * 获取用户信息列表
 	 */
 	public String list(){
-		if(logger.isDebugEnabled())
-        {
+		if(logger.isDebugEnabled()){
             logger.debug("UserInfoAction.list() start ......");
         }
-		if(logger.isDebugEnabled())
-        {
+		if(logger.isDebugEnabled()){
             logger.debug("UserInfoAction.list() end ......");
         }
 		return SUCCESS;
@@ -46,26 +48,39 @@ public class RoleInfoAction extends ActionSupport {
 	 * @return 
 	 */
 	public String add(){
-		System.out.println(userInfo.getUseraccount());
-		System.out.println(userInfoService == null);
-		userInfoService.save(userInfo);
+		try{
+			System.out.println(menuIdList);
+			System.out.println(roleInfoService == null);
+			roleInfoService.save(roleInfo,menuIdList);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		return SUCCESS;
 	}
 	
-	@Autowired
-	public void setUserInfoService(UserInfoService userInfoService) {
-		this.userInfoService = userInfoService;
+	public void setMenuIdList(String menuIdList) {
+		this.menuIdList = menuIdList;
 	}
 
-	public UserInfoService getUserInfoService() {
-		return userInfoService;
+	public String getMenuIdList() {
+		return menuIdList;
+	}
+
+	public void setRoleInfo(RoleInfo roleInfo) {
+		this.roleInfo = roleInfo;
+	}
+
+	public RoleInfo getRoleInfo() {
+		return roleInfo;
 	}
 	
-	public UserInfo getUserInfo() {
-		return userInfo;
+	@Autowired
+	public void setRoleInfoService(RoleInfoService roleInfoService) {
+		this.roleInfoService = roleInfoService;
 	}
 
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
+	public RoleInfoService getRoleInfoService() {
+		return roleInfoService;
 	}
+
 }
