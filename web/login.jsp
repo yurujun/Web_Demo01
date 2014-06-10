@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=GBK" language="java"%>
+<%--<%@ page contentType="text/html;charset=GBK" language="java"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%
     response.setHeader("Cache-Control", "no-store");
@@ -76,3 +76,8 @@
 		</div>
 	</body>
 </html>
+--%>
+<%
+    String context = request.getContextPath();
+%>
+<a href="<%=context %>/loginAction_login.do">µÇÂ½</a>
