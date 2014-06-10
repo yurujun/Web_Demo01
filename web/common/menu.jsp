@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=GBK" language="java" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
     String context = request.getContextPath();
 
@@ -86,6 +87,8 @@
   
   <body>
 	<div class="sidebar-menu" style="margin-top: 0px;border-right: 1px solid #c4c8cb;" >
+		<s:iterator value="">
+		</s:iterator>
 		<a href="#userMeun" class="nav-header menu-first collapsed" data-toggle="collapse">
 			<i class="icon-user-md icon-large"></i> 用户管理
 		</a>
