@@ -34,17 +34,22 @@
 	<constant name="struts.ui.theme" value="simple" />
 	
 	
-    <package name="default" namespace="/" extends="struts-default">
+    <package name="unlogin" extends="struts-default">
 
         <default-action-ref name="index" />
-
+		
+		<!-- 定义全局结果集login,只要返回的结果是login,就跳转到登陆页面 -->
         <global-results>
-            <result name="error">/error.jsp</result>
+            <result name="login">/login.jsp</result>
         </global-results>
 
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
+        
+        <action name="loginAction" class="loginAction">
+            <result name="loginSuc">index.jsp</result>
+        </action>
 
         <action name="testAction" class="testAction">
             <result name="success">index.jsp</result>
