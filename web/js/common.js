@@ -5,10 +5,8 @@ var errorInfo; //用来在页面中显示错误信息
  * @param str
  * @return
  */
-function checkIsNull(str)
-{
-	if (str == null || typeof(str)== 'undefined')
-	{
+function checkIsNull(str){
+	if (str == null || typeof(str)== 'undefined'){
 		return "";
 	}
 	return str;
@@ -48,10 +46,17 @@ function clearErrMsg(){
 }
 
 function getFkValue(url , valueItem , displayItem ,windowArg){
+	var iHeight = 500;
+	
+	var iWidth = 950;
+	//获得窗口的垂直位置
+    var iTop = (window.screen.availHeight-30-iHeight)/2;        
+    //获得窗口的水平位置
+    var iLeft = (window.screen.availWidth-10-iWidth)/2;       
     var winArgs = windowArg;
     if(winArgs && winArgs.length>0){
     }else{
-        winArgs = "dialogLeft:100px;dialogTop:100px;dialogHeight:600px;dialogWidth:950px;center:yes;resizable:yes;status:no";
+        winArgs = "dialogLeft:"+iTop+"px;dialogTop:"+iLeft+"px;dialogHeight:"+iHeight+"px;dialogWidth:"+iWidth+"px;status:yes;menubar:no;location:no;resizable;yes;scrollbars:yes;";
     }
     var retValue = window.showModalDialog(url,"",winArgs);
     if(retValue && retValue.length>0){
@@ -59,6 +64,19 @@ function getFkValue(url , valueItem , displayItem ,windowArg){
         valueItem.value = spValue[0];
         displayItem.value = spValue[01];
     }
+}
+
+/**
+ * 
+ * @param trItem          当前的行对象
+ * @param valIndex        需要显示到父页面的内容所在的列序号
+ * @param displayIndex    需要传递到父页面所需的内值所在的列序号
+ * @return
+ */
+function sendFkValue(trItem , valIndex , displayIndex){
+    var retValue = trItem.cells[valIndex].childNodes[0].value +"∪" + trItem.cells[displayIndex].innerHTML;
+    window.returnValue = retValue;
+    window.close();
 }
 
 /**

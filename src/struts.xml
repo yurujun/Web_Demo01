@@ -61,12 +61,13 @@
     	
     	<action name="menuInfoAction_*" class="menuInfoAction" method="{1}">
     		<result name="add">/admin/pages/menuInfo_add.jsp</result>
-    		<result name="success">/admin/pages/menuInfo_{1}.jsp</result>
+    		<result name="list">/admin/pages/menuInfo_list.jsp</result>
     	</action>
     	
     	<action name="roleInfoAction_*" class="roleInfoAction" method="{1}">
     		<result name="add">/admin/pages/roleInfo_add.jsp</result>
-    		<result name="success">/admin/pages/roleInfo_{1}.jsp</result>
+    		<result name="fkSelect">/admin/pages/roleInfo_fkSelect.jsp</result>
+    		<result name="success">/admin/pages/roleInfo_list.jsp</result>
     	</action>
     
     	<action name="userInfoAction_*" class="userInfoAction" method="{1}">

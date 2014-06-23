@@ -43,22 +43,22 @@
   font-size: 12px;
 }
 .pagination-first {
-  background: url('/eval/images/pagination_icons.png') no-repeat 0 0;
+  background: url('../../images/page/pagination_icons.png') no-repeat 0 0;
 }
 .pagination-prev {
-  background: url('/eval/images/pagination_icons.png') no-repeat -16px 0;
+  background: url('../../images/page/pagination_icons.png') no-repeat -16px 0;
 }
 .pagination-next {
-  background: url('/eval/images/pagination_icons.png') no-repeat -32px 0;
+  background: url('../../images/page/pagination_icons.png') no-repeat -32px 0;
 }
 .pagination-last {
-  background: url('/eval/images/pagination_icons.png') no-repeat -48px 0;
+  background: url('../../images/page/pagination_icons.png') no-repeat -48px 0;
 }
 .pagination-load {
-  background: url('/eval/images/pagination_icons.png') no-repeat -64px 0;
+  background: url('../../images/page/pagination_icons.png') no-repeat -64px 0;
 }
 .pagination-loading {
-  background: url('/eval/images/loading.gif') no-repeat;
+  background: url('../../images/page/loading.gif') no-repeat;
 }
 .pagination-page-list,
 .pagination .pagination-num {

@@ -1,15 +1,18 @@
 package com.web.action;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.custom.action.CustomAction;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.web.pojo.RoleInfo;
 import com.web.service.RoleInfoService;
 
-public class RoleInfoAction extends ActionSupport {
+public class RoleInfoAction extends CustomAction {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -24,6 +27,14 @@ public class RoleInfoAction extends ActionSupport {
      * 日志打印类
      */
     private static final Log logger = LogFactory.getLog(RoleInfoAction.class);
+    
+    /**
+     * 准备获取角色信息列表
+     * @return
+     */
+    public String beforeList(){
+		return "list";
+	}
 	
 	/**
 	 * 获取用户信息列表
@@ -32,10 +43,21 @@ public class RoleInfoAction extends ActionSupport {
 		if(logger.isDebugEnabled()){
             logger.debug("UserInfoAction.list() start ......");
         }
+		
+		try{
+			List<RoleInfo> list = new ArrayList<RoleInfo>();
+			list = roleInfoService.getListByList();
+			
+			// 将查询到的数据以json的形式写到页面中
+            this.writeJSONData(list, new String[] {"roleName","isValidate"});
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		if(logger.isDebugEnabled()){
             logger.debug("UserInfoAction.list() end ......");
         }
-		return SUCCESS;
+		return NONE;
 	}
 	
 	public String beforeAdd(){
@@ -49,13 +71,37 @@ public class RoleInfoAction extends ActionSupport {
 	 */
 	public String add(){
 		try{
-			System.out.println(menuIdList);
-			System.out.println(roleInfoService == null);
 			roleInfoService.save(roleInfo,menuIdList);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return SUCCESS;
+	}
+	
+	public String beforeFkSelect(){
+		System.out.println("beforsFkSelect");
+		return "fkSelect";
+	}
+	
+	public String fkSelect(){
+		if(logger.isDebugEnabled()){
+            logger.debug("UserInfoAction.list() start ......");
+        }
+		
+		try{
+			List<RoleInfo> list = new ArrayList<RoleInfo>();
+			list = roleInfoService.getListByList();
+			
+			// 将查询到的数据以json的形式写到页面中
+            this.writeJSONData(list, new String[] {"roleId","roleName"});
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		if(logger.isDebugEnabled()){
+            logger.debug("UserInfoAction.list() end ......");
+        }
+		return NONE;
 	}
 	
 	public void setMenuIdList(String menuIdList) {

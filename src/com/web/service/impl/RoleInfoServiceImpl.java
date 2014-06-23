@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.struts2.custom.common.Page;
 import org.apache.struts2.custom.dao.GenericDaoHibernate;
 import org.hibernate.Query;
 
@@ -28,6 +29,26 @@ public class RoleInfoServiceImpl extends GenericDaoHibernate<RoleInfo, String> i
 	}
 	
 	/**
+	 * 获取分页记录
+	 * @param curpage   当前页
+	 * @param pageSize  页面容量
+	 * @param filter    查询条件,为null表示无条件
+	 * @param orderBy   排序条件,为null表示不需要排序
+	 * @return
+	 */
+	public Page getListByPage(int curpage ,int pageSize ,String filter , String orderBy ){
+		Page page = new Page();
+		try{
+			StringBuffer sqlBuffer = new StringBuffer();
+			sqlBuffer.append("select * from role_info");
+			page = super.getListByPage(sqlBuffer.toString(), 100, 1);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return page;
+	}
+	
+	/**
 	 * 保存角色信息
 	 * @param roleInfo
 	 */
@@ -44,7 +65,6 @@ public class RoleInfoServiceImpl extends GenericDaoHibernate<RoleInfo, String> i
 		}
 		sql.delete(sql.length() - 1, sql.length());
 		sql.append(")");
-		System.out.println("sql:"+sql);
 		Query queryMenuInfo = getSession().createQuery(sql.toString());
 		List<MenuInfo> menuInfoList = queryMenuInfo.list();
 		
@@ -57,8 +77,15 @@ public class RoleInfoServiceImpl extends GenericDaoHibernate<RoleInfo, String> i
 			menuRoleRelationSet.add(menuRoleRelation);
 		}
 		roleInfo.setMenuRoleRelations(menuRoleRelationSet);
-		System.out.println(roleInfo.getMenuRoleRelations().size());
 		super.save(roleInfo);
 	}
 	
+	/**
+	 * 获取所有角色信息的List集合
+	 */
+	public List<RoleInfo> getListByList() {
+		List<RoleInfo> list = new ArrayList<RoleInfo>();
+		list = super.getAll(RoleInfo.class);
+		return list;
+	}
 }

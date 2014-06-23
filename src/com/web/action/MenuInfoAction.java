@@ -2,6 +2,7 @@ package com.web.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -12,13 +13,13 @@ import net.sf.json.JSONObject;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.custom.action.CustomAction;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.opensymphony.xwork2.ActionSupport;
 import com.web.pojo.MenuInfo;
 import com.web.service.MenuInfoService;
 
-public class MenuInfoAction extends ActionSupport {
+public class MenuInfoAction extends CustomAction {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +31,11 @@ public class MenuInfoAction extends ActionSupport {
 	 * 日志打印类
 	 */
 	private static final Log logger = LogFactory.getLog(MenuInfoAction.class);
-
+	
+	public String beforeList(){
+		return "list";
+	}
+	
 	/**
 	 * 获取菜单信息列表
 	 */
@@ -40,7 +45,11 @@ public class MenuInfoAction extends ActionSupport {
 		}
 		
 		try{
+			List<MenuInfo> list = new ArrayList<MenuInfo>();
+			list = menuInfoService.getListByList();
 			
+			// 将查询到的数据以json的形式写到页面中
+            this.writeJSONData(list, new String[] {"menuName","menuUrl", "parentId","isValidate"});
 		} catch(Exception e){
 			e.printStackTrace();
 		}
@@ -48,9 +57,9 @@ public class MenuInfoAction extends ActionSupport {
 		if (logger.isDebugEnabled()) {
 			logger.debug("MenuInfoAction.list() end ......");
 		}
-		return SUCCESS;
+		return NONE;
 	}
-
+	
 	public String beforeAdd() {
 
 		return "add";
@@ -62,10 +71,18 @@ public class MenuInfoAction extends ActionSupport {
 	 * @return
 	 */
 	public String add() {
-		System.out.println(menuInfo.getMenuName());
-		System.out.println(menuInfo.getIsValidate());
-		System.out.println(menuInfo.getMenuUrl());
-		menuInfoService.save(menuInfo);
+		if (logger.isDebugEnabled()) {
+			logger.debug("MenuInfoAction 添加菜单后台方法开始 ......");
+		}
+		try{
+			menuInfoService.save(menuInfo);
+		}catch(Exception e){
+			logger.debug("MenuInfoAction 添加菜单后台方法出现错误 ......");
+			e.printStackTrace();
+		}
+		if (logger.isDebugEnabled()) {
+			logger.debug("MenuInfoAction 添加菜单后台方法结束 ......");
+		}
 		return SUCCESS;
 	}
 
@@ -75,8 +92,9 @@ public class MenuInfoAction extends ActionSupport {
 	 * @return
 	 */
 	public String getMenuTree() {
-		System.out.println("getMenuTree()");
-		System.out.println(menuInfoService == null);
+		if (logger.isDebugEnabled()) {
+			logger.debug("获取菜单数据  开始......");
+		}
 		try {
 			List<MenuInfo> menuInfoList = menuInfoService.findAllMenuInfos();
 			String node = null;
@@ -107,6 +125,9 @@ public class MenuInfoAction extends ActionSupport {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		if (logger.isDebugEnabled()) {
+			logger.debug("获取菜单数据  结束......");
 		}
 		return NONE;
 	}

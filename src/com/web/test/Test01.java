@@ -1,11 +1,22 @@
 package com.web.test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONObject;
 
 public class Test01 {
 
 	public static void main(String[] args) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("key", "value");
+		map.put("name", "abc");
+		JSONObject json = JSONObject.fromObject(map);
+		System.out.println(json);
+		
 		List<Integer> temp = new ArrayList<Integer>();
 		for(int i=1;i<=4;i++){
 			temp.add(i);

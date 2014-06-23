@@ -1,7 +1,5 @@
 package com.web.pojo;
 
-// default package
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

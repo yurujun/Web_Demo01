@@ -114,14 +114,14 @@
 		<table width="1200px" border="0" height="280" cellpadding="0" cellspacing="0">
 			<tr height="280">
 				<td valign="top" align="left" width="1200px" style="border: 1px solid #cccccc;" id="tdContent">
-					<table width="1200px" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+					<table width="1180px" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
 						<col width="40" />
 						<col width="150" />
 						<col width="200" />
 						<col width="200" />
 						<col width="200" />
 						<col width="200" />
-						<col width="210" />
+						<col width="80" />
 
 						<tr height="30px">
 							<th class="leftMostListTableHead">
@@ -157,18 +157,19 @@
 						</tr>
 					</table>
 					<div style="overflow: scroll; height: 400px; width: 1200px">
-						<table border="0" cellpadding="0" cellspacing="0" width="1183px" id="tableContent" style="border-collapse: collapse">
+						<table border="0" cellpadding="0" cellspacing="0" width="1180px" id="tableContent" style="border-collapse: collapse">
 								<col width="40" />
 								<col width="150" />
 								<col width="200" />
 								<col width="200" />
 								<col width="200" />
 								<col width="200" />
-								<col width="190" />
+								<col width="80" />
 								<%
 									for(int i=0;i<20;i++){
 								%>
 								<tr height="30">
+									<td class="listTableText" style="display: none;">π‹¿Ì‘±</td>
 									<td class="leftMostListTableText">
 										<input type="checkbox" name="deleteList" value="1" />
 									</td>

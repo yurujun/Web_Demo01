@@ -77,11 +77,11 @@
 				        <s:password cssClass="editColumnTextFieldMust" />
 				    </td>
 				    <td class="editColumnTitle">
-				       	<img src="<%=context %>/images/markMustInput.jpg"><s:text name="userInfo.comcode"/>    <!-- 归属机构 -->
+				       	<img src="<%=context %>/images/markMustInput.jpg"><s:text name="userInfo.comcode"/>    <!-- 所属角色 -->
 				    </td>
 				    <td class="editColumnText">
-				        <s:textfield name="userInfo.comcode" cssClass="editColumnTextFieldMust" id="comName"
-				        	onclick="getFkValue('roleInfoAction!fkSelect.action',addForm.comId,addForm.comName,'')"/>
+				        <s:textfield name="userInfo.comcode" cssClass="editColumnTextFieldMust" id="comName" readonly="true"
+				        	onclick="getFkValue('roleInfoAction_beforeFkSelect.do',addForm.comId,addForm.comName,'')"/>
 				        <s:hidden name="userInfo.comInfo.comId" id="comId"/>
 				    </td>
 				    <td class="editColumnTitle">

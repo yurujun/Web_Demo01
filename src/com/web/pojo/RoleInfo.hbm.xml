@@ -49,7 +49,7 @@
         <property name="ex10" type="java.lang.String">
             <column name="ex10" length="100" />
         </property>
-        <set name="menuRoleRelations" inverse="true">
+        <set name="menuRoleRelations" inverse="true" cascade="save-update">
             <key>
                 <column name="ROLE_ID" not-null="true" />
             </key>

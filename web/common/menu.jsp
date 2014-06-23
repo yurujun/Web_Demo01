@@ -104,7 +104,7 @@
 		</a>
 		<ul id="articleMenu" class="nav nav-list collapse menu-second">
 			<li><a href="<%=context %>/roleInfoAction_beforeAdd.do"><i class="icon-plus"></i> 添加角色</a></li>
-			<li><a href="#"><i class="icon-list"></i> 角色列表</a></li>
+			<li><a href="<%=context %>/roleInfoAction_beforeList.do"><i class="icon-list"></i> 角色列表</a></li>
 		</ul>
 		
 		<a href="#fileMenu" class="nav-header menu-first collapsed" data-toggle="collapse">
@@ -112,7 +112,7 @@
 		</a>
 		<ul id="fileMenu" class="nav nav-list collapse menu-second">
 			<li><a href="<%=context %>/menuInfoAction_beforeAdd.do"><i class="icon-plus"></i> 添加菜单</a></li>
-			<li><a href="<%=context %>/menuInfoAction_list.do"><i class="icon-list"></i> 菜单列表</a></li>
+			<li><a href="<%=context %>/menuInfoAction_beforeList.do"><i class="icon-list"></i> 菜单列表</a></li>
 		</ul>
 		
 	</div>

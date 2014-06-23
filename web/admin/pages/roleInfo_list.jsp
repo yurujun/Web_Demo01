@@ -11,12 +11,11 @@
 %>
 <html>
 	<head>
-		<title>用户列表</title>
+		<title>角色列表</title>
 		<link rel="stylesheet" type="text/css" href="<%=context %>/css/themes/pageNavi.css">
 		<link rel="stylesheet" type="text/css" href="<%=context %>/css/themes/common.css">
 		<script type="text/javascript" src="<%=context %>/js/list.js"></script>
 		<script type="text/javascript" src="<%=context %>/js/jquery-1.10.1.min.js"></script>
-
 		<script type="text/javascript">
 			var contextRootPath = "${ctx}";
 
@@ -26,7 +25,7 @@
 				
 			
 			function query(){
-				var url = contextRootPath + "/menuInfoAction_list.do";
+				var url = contextRootPath + "/roleInfoAction_fkSelect.do";
 				$.ajax({
 			        type: "post",
 			        dataType: "json",//定义返回的数据时JSON格式 
@@ -37,9 +36,7 @@
 						for(var i=0;i<length;i++){
 							content += "<tr height=\"30\">";
 							content += "	<td class=\"leftMostListTableText\"><input type=\"checkbox\" name=\"deleteList\" value=\"1\" /></td>";
-							content += "	<td class=\"listTableText\">"+obj.data[i]["menuName"]+"</td>";
-							content += "	<td class=\"listTableText\">"+obj.data[i]["menuUrl"]+"</td>";
-							content += "	<td class=\"listTableText\">"+obj.data[i]["parentId"]+"</td>";
+							content += "	<td class=\"listTableText\">"+obj.data[i]["roleName"]+"</td>";
 							content += "	<td class=\"listTableText\">"+obj.data[i]["isValidate"]+"</td>";
 							content += "</tr>";
 						}
@@ -51,21 +48,20 @@
     	</script>
 	</head>
 	<body>
-		
 		<!-- 查询条件Start -->
 		<table width="1200" border="0" height="90" cellpadding="0" cellspacing="0">
 			<tr height="30">
 			    <td class="editColumnTitle">
-			       	<s:text name="menuInfo.menuName"/>    <!-- 菜单名称 -->
+			       	<s:text name="roleInfo.roleName"/>    <!-- 角色名称 -->
 			    </td>
 			    <td class="editColumnText">
 			        <input type="text" style="width: 90%;">
 			    </td>
 			    <td class="editColumnTitle">
-			       	 <s:text name="menuInfo.isValidate"/>    <!-- 是否有效 -->
+			       	 <s:text name="roleInfo.isValidate"/>    <!-- 是否有效 -->
 			    </td>
 			    <td class="editColumnText">
-					<s:select name="menuInfo.isValidate" list="#{'1':'有效','0':'无效'}" cssClass="editColumnSelectItemMust"/>
+					<s:select name="roleInfo.isValidate" list="#{'1':'有效','0':'无效'}" cssClass="editColumnSelectItemMust"/>
 				</td>
 			    <td class="editColumnTitle">
 			       	&nbsp;
@@ -98,11 +94,7 @@
 				<td valign="top" align="left" width="1200px" style="border: 1px solid #cccccc;" id="tdContent">
 					<table width="1180px" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
 						<col width="40" />
-						<col width="150" />
-						<col width="200" />
-						<col width="200" />
-						<col width="200" />
-						<col width="200" />
+						<col width="100" />
 						<col width="80" />
 
 						<tr height="30px">
@@ -112,32 +104,21 @@
 							</th>
 							<th class="listTableHead"
 								onclick="setOrderBy('instancess.userName')">
-								<nobr>菜单名称</nobr>
+								<s:text name="roleInfo.roleName"/>    <!-- 角色名称 -->
 							</th>
-							<th class="listTableHead"
+							<!-- <th class="listTableHead"
 								onclick="setOrderBy('instancess.userExtInfo.realName')">
-								<nobr>链接地址</nobr>
+								<s:text name="roleInfo.menuRoleRelations"/>    <!-- 菜单权限 -->
+							<!-- </th> -->
+							<th class="listTableHead" onclick="setOrderBy('instancess.open')">
+								<s:text name="roleInfo.isValidate"/>    <!-- 是否有效 -->
 							</th>
-
-							<th class="listTableHead"
-								onclick="setOrderBy('instancess.deptInfo.deptName')">
-								<nobr>父菜单</nobr>
-							</th>
-
-							<th class="listTableHead"
-								onclick="setOrderBy('instancess.roleName.roleId')">
-								<nobr>是否有效</nobr>
-							</th>
-
 						</tr>
 					</table>
 					<div style="overflow: scroll; height: 400px; width: 1200px">
-						<table border="0" cellpadding="0" cellspacing="0" width="1180px" id="tableContent" style="border-collapse: collapse">
+						<table border="0" cellpadding="0" cellspacing="0" width="1180px;" id="tableContent" style="border-collapse: collapse">
 							<col width="40" />
-							<col width="150" />
-							<col width="200" />
-							<col width="200" />
-							<col width="200" />
+							<col width="100" />
 							<col width="80" />
 						</table>
 					</div>
